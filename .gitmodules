@@ -1,3 +1,4 @@
 [submodule "SDRPlusPlus"]
 	path = SDRPlusPlus
-	url = https://github.com/AlexandreRouma/SDRPlusPlus.git
+	url = git@github.com:Ahmad-Bamba/SDRPlusPlus.git
+	branch = nightly/Ahmad-Bamba

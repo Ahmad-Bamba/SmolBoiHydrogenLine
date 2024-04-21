@@ -1,6 +1,3 @@
 ---
-Checks:
-- -*
-- cppcoreguidelines-*
----
-
+Checks: '-*,-clang-diagnostic-*,cppcoreguidelines-*,performance-*,bugprone-*,-bugprone-reserved-identifier'
+WarningsAsErrors: 'cppcoreguidelines-owning-memory,cppcoreguidelines-pro-bounds-*,cppcoreguidelines-pro-type-*,cppcoreguidelines-slicing'

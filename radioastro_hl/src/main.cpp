@@ -12,12 +12,12 @@ SDRPP_MOD_INFO{
 
 class RadioAstroHL : public ModuleManager::Instance {
 public:
-    RadioAstroHL(std::string name) {
-        this->name = name;
+    RadioAstroHL(std::string _name) : name { std::move(_name) }
+    {
         gui::menu.registerEntry(name, menuHandler, this, NULL);
     }
 
-    ~RadioAstroHL() {
+    virtual ~RadioAstroHL() {
         gui::menu.removeEntry(name);
     }
 
@@ -38,7 +38,7 @@ public:
 private:
     static void menuHandler(void* ctx) {
         RadioAstroHL* _this = static_cast<RadioAstroHL*>(ctx);
-        ImGui::Text("Hello SDR++, my name is %s", _this->name.c_str());
+        ImGui::Text("Hello SDR++, my name is %s", _this->name.c_str()); // NOLINT
     }
 
     std::string name;
@@ -50,11 +50,11 @@ MOD_EXPORT void _INIT_() {
 }
 
 MOD_EXPORT ModuleManager::Instance* _CREATE_INSTANCE_(std::string name) {
-    return new RadioAstroHL(name);
+    return new RadioAstroHL(name); // NOLINT
 }
 
-MOD_EXPORT void _DELETE_INSTANCE_(void* instance) {
-    delete instance;
+MOD_EXPORT void _DELETE_INSTANCE_(ModuleManager::Instance* instance) {
+    delete instance; // NOLINT
 }
 
 MOD_EXPORT void _END_() {

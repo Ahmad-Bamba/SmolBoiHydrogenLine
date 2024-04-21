@@ -55,5 +55,5 @@ dkms.conf
 # Build folder
 build/
 
-# vscode
-.vscode/
+# vscode setting files
+.vscode/*.json
